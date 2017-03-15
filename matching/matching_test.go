@@ -94,14 +94,20 @@ func TestSpatialMatchQwerty(t *testing.T) {
 	matches = spatialMatch("asdf")
 	assert.Len(t, matches, 1, "Lenght should be 1")
 	assert.NotZero(t, matches[0].Entropy, "Entropy should be set")
+}
 
+func TestSpatialMatchAzerty(t *testing.T) {
+	matches := spatialMatch("&é\"'(-è_çà)=")
+	assert.Len(t, matches, 1, "Lenght should be 1")
+	assert.NotZero(t, matches[0].Entropy, "Entropy should be set")
+	assert.Equal(t, matches[0].DictionaryName, "azerty")
+	log.Println(matches)
 }
 
 func TestSpatialMatchDvorak(t *testing.T) {
 	matches := spatialMatch("aoeuidhtns")
 	assert.Len(t, matches, 1, "Lenght should be 1")
 	assert.NotZero(t, matches[0].Entropy, "Entropy should be set")
-
 }
 
 func TestDictionaryMatch(t *testing.T) {
@@ -116,7 +122,6 @@ func TestDictionaryMatch(t *testing.T) {
 		assert.NotZero(t, match.Entropy, "Entropy should be set")
 
 	}
-
 }
 
 func TestDateWithoutSepMatch(t *testing.T) {

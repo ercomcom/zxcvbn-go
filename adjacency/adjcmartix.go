@@ -17,6 +17,7 @@ var AdjacencyGph = make(map[string]AdjacencyGraph)
 
 func init() {
 	AdjacencyGph["qwerty"] = BuildQwerty()
+	AdjacencyGph["azerty"] = BuildAzerty()
 	AdjacencyGph["dvorak"] = BuildDvorak()
 	AdjacencyGph["keypad"] = BuildKeypad()
 	AdjacencyGph["macKeypad"] = BuildMacKeypad()
@@ -29,6 +30,13 @@ func BuildQwerty() AdjacencyGraph {
 		panic("Can't find asset")
 	}
 	return GetAdjancencyGraphFromFile(data, "qwerty")
+}
+func BuildAzerty() AdjacencyGraph {
+	data, err := zxcvbn_data.Asset("data/Azerty.json")
+	if err != nil {
+		panic("Can't find asset")
+	}
+	return GetAdjancencyGraphFromFile(data, "azerty")
 }
 func BuildDvorak() AdjacencyGraph {
 	data, err := zxcvbn_data.Asset("data/Dvorak.json")

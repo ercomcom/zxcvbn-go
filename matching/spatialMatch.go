@@ -18,22 +18,24 @@ func spatialMatch(password string) (matches []match.Match) {
 
 func spatialMatchHelper(password string, graph adjacency.AdjacencyGraph) (matches []match.Match) {
 
-	for i := 0; i < len(password)-1; {
+	passwordRunes := []rune(password)
+
+	for i := 0; i < len(passwordRunes)-1; {
 		j := i + 1
 		lastDirection := -99 //an int that it should never be!
 		turns := 0
 		shiftedCount := 0
 
 		for {
-			prevChar := password[j-1]
+			prevChar := passwordRunes[j-1]
 			found := false
 			foundDirection := -1
 			curDirection := -1
 			//My graphs seem to be wrong. . . and where the hell is qwerty
 			adjacents := graph.Graph[string(prevChar)]
 			//Consider growing pattern by one character if j hasn't gone over the edge
-			if j < len(password) {
-				curChar := password[j]
+			if j < len(passwordRunes) {
+				curChar := passwordRunes[j]
 				for _, adj := range adjacents {
 					curDirection += 1
 
@@ -41,7 +43,7 @@ func spatialMatchHelper(password string, graph adjacency.AdjacencyGraph) (matche
 						found = true
 						foundDirection = curDirection
 
-						if strings.Index(adj, string(curChar)) == 1 {
+						if strings.Index(adj, string(curChar)) >= 1 {
 							//index 1 in the adjacency means the key is shifted, 0 means unshifted: A vs a, % vs 5, etc.
 							//for example, 'q' is adjacent to the entry '2@'. @ is shifted w/ index 1, 2 is unshifted.
 							shiftedCount += 1
