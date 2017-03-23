@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/nbutton23/zxcvbn-go"
+	"github.com/ercomcom/zxcvbn-go"
 	"time"
 )
 

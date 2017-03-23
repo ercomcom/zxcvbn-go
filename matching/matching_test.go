@@ -3,7 +3,7 @@ package matching
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/ercomcom/zxcvbn-go/match"
 	"github.com/stretchr/testify/assert"
 	"log"
 	"strings"

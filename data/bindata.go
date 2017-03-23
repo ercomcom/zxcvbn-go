@@ -350,17 +350,17 @@ func AssetNames() []string {
 
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
-	"data/Azerty.json": dataAzertyJson,
-	"data/Dvorak.json": dataDvorakJson,
-	"data/English.json": dataEnglishJson,
+	"data/Azerty.json":      dataAzertyJson,
+	"data/Dvorak.json":      dataDvorakJson,
+	"data/English.json":     dataEnglishJson,
 	"data/FemaleNames.json": dataFemalenamesJson,
-	"data/Keypad.json": dataKeypadJson,
-	"data/L33t.json": dataL33tJson,
-	"data/MacKeypad.json": dataMackeypadJson,
-	"data/MaleNames.json": dataMalenamesJson,
-	"data/Passwords.json": dataPasswordsJson,
-	"data/Qwerty.json": dataQwertyJson,
-	"data/Surnames.json": dataSurnamesJson,
+	"data/Keypad.json":      dataKeypadJson,
+	"data/L33t.json":        dataL33tJson,
+	"data/MacKeypad.json":   dataMackeypadJson,
+	"data/MaleNames.json":   dataMalenamesJson,
+	"data/Passwords.json":   dataPasswordsJson,
+	"data/Qwerty.json":      dataQwertyJson,
+	"data/Surnames.json":    dataSurnamesJson,
 }
 
 // AssetDir returns the file names below a certain
@@ -402,19 +402,20 @@ type bintree struct {
 	Func     func() (*asset, error)
 	Children map[string]*bintree
 }
+
 var _bintree = &bintree{nil, map[string]*bintree{
 	"data": &bintree{nil, map[string]*bintree{
-		"Azerty.json": &bintree{dataAzertyJson, map[string]*bintree{}},
-		"Dvorak.json": &bintree{dataDvorakJson, map[string]*bintree{}},
-		"English.json": &bintree{dataEnglishJson, map[string]*bintree{}},
+		"Azerty.json":      &bintree{dataAzertyJson, map[string]*bintree{}},
+		"Dvorak.json":      &bintree{dataDvorakJson, map[string]*bintree{}},
+		"English.json":     &bintree{dataEnglishJson, map[string]*bintree{}},
 		"FemaleNames.json": &bintree{dataFemalenamesJson, map[string]*bintree{}},
-		"Keypad.json": &bintree{dataKeypadJson, map[string]*bintree{}},
-		"L33t.json": &bintree{dataL33tJson, map[string]*bintree{}},
-		"MacKeypad.json": &bintree{dataMackeypadJson, map[string]*bintree{}},
-		"MaleNames.json": &bintree{dataMalenamesJson, map[string]*bintree{}},
-		"Passwords.json": &bintree{dataPasswordsJson, map[string]*bintree{}},
-		"Qwerty.json": &bintree{dataQwertyJson, map[string]*bintree{}},
-		"Surnames.json": &bintree{dataSurnamesJson, map[string]*bintree{}},
+		"Keypad.json":      &bintree{dataKeypadJson, map[string]*bintree{}},
+		"L33t.json":        &bintree{dataL33tJson, map[string]*bintree{}},
+		"MacKeypad.json":   &bintree{dataMackeypadJson, map[string]*bintree{}},
+		"MaleNames.json":   &bintree{dataMalenamesJson, map[string]*bintree{}},
+		"Passwords.json":   &bintree{dataPasswordsJson, map[string]*bintree{}},
+		"Qwerty.json":      &bintree{dataQwertyJson, map[string]*bintree{}},
+		"Surnames.json":    &bintree{dataSurnamesJson, map[string]*bintree{}},
 	}},
 }}
 
@@ -464,4 +465,3 @@ func _filePath(dir, name string) string {
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(cannonicalName, "/")...)...)
 }
-

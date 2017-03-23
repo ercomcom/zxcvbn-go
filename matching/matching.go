@@ -1,9 +1,9 @@
 package matching
 
 import (
-	"github.com/nbutton23/zxcvbn-go/adjacency"
-	"github.com/nbutton23/zxcvbn-go/frequency"
-	"github.com/nbutton23/zxcvbn-go/match"
+	"github.com/ercomcom/zxcvbn-go/adjacency"
+	"github.com/ercomcom/zxcvbn-go/frequency"
+	"github.com/ercomcom/zxcvbn-go/match"
 	"sort"
 )
 
